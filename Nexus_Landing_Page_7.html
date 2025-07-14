@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXUS SUIT - Internal ERP Portal</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #6229a1, #4e2083);
+        color: #ffffff;
+        overflow-x: hidden;
+    }
+    .header-section {
+        text-align: center;
+        padding: 100px 20px 60px;
+    }
+    .header-section h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        animation: fadeSlide 2s ease;
+        background: linear-gradient(90deg, #ffffff, #d1bfff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .header-section p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto 30px;
+        animation: fadeSlide 2.5s ease;
+    }
+    .navigation-links a {
+        margin: 10px;
+        padding: 15px 35px;
+        display: inline-block;
+        background: #ffffff;
+        color: #6229a1;
+        font-weight: 600;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .navigation-links a:hover {
+        background: #d1bfff;
+        color: #4e2083;
+        transform: translateY(-3px);
+    }
+    footer {
+        background: #ffffff;
+        color: #6229a1;
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+    @keyframes fadeSlide {
+        0% { opacity: 0; transform: translateY(-50px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+
+<section class="header-section">
+    <h1><span style="letter-spacing: 4px;">ＮＥＸＵＳ ＳＵＩＴ</span></h1>
+    <p>Internal ERP Portal for seamless operations, efficiency, and smarter collaboration.</p>
+    <div class="navigation-links">
+        <a href="{{ route('login') }}">Login</a>
+        <a href="{{ route('dashboard') }}">Dashboard</a>
+        <a href="{{ route('help') }}">Help Desk</a>
+    </div>
+</section>
+
+<footer>
+    © 2025 NEXUS SUIT | Internal ERP Portal | Confidential
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
