@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXUS SUIT - Internal ERP Portal</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: black;
+        overflow: hidden;
+        font-family: 'Poppins', sans-serif;
+    }
+    canvas {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+    .content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        color: #00ff00;
+        text-shadow: 0 0 10px #00ff00;
+        text-align: center;
+    }
+    .content h1 {
+        font-size: 4rem;
+        margin-bottom: 20px;
+    }
+    .content p {
+        font-size: 1.2rem;
+        max-width: 700px;
+    }
+    .navigation-links a {
+        margin: 10px;
+        padding: 15px 35px;
+        display: inline-block;
+        background: #00ff00;
+        color: #000000;
+        font-weight: 600;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .navigation-links a:hover {
+        background: #1aff1a;
+        color: #000000;
+        transform: translateY(-3px);
+    }
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: #111;
+        color: #00ff00;
+        text-align: center;
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+</style>
+</head>
+<body>
+<canvas id="matrixCanvas"></canvas>
+<div class="content">
+    <h1>NEXUS SUIT</h1>
+    <p>Internal ERP Portal for seamless operations, efficiency, and smarter collaboration.</p>
+    <div class="navigation-links">
+        <a href="{{ route('login') }}">Login</a>
+        <a href="{{ route('dashboard') }}">Dashboard</a>
+        <a href="{{ route('help') }}">Help Desk</a>
+    </div>
+</div>
+<footer>
+    © 2025 NEXUS SUIT | Internal ERP Portal | Confidential
+</footer>
+<script>
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    let letters = Array(256).join(1).split('');
+
+    function drawMatrix() {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#00FF00';
+        ctx.font = '15pt monospace';
+        letters.forEach((y_pos, index) => {
+            const text = String.fromCharCode(0x30A0 + Math.random() * 96);
+            const x_pos = index * 15;
+            ctx.fillText(text, x_pos, y_pos);
+            letters[index] = y_pos > canvas.height + Math.random() * 10000 ? 0 : y_pos + 15;
+        });
+    }
+    setInterval(drawMatrix, 50);
+
+    window.addEventListener('resize', () => {
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        letters = Array(256).join(1).split('');
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
